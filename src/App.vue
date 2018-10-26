@@ -5,19 +5,22 @@
       <form>
     <div class="form-group">
       <label for="correo">Nombre</label>
-      <input type="text" class="form-control" placeholder="Nombre">
+      <input type="text" class="form-control" placeholder="Nombre"
+      v-model="usuario.nombre">
     </div>
     <div class="form-group">
       <label for="correo">Correo Electrónico</label>
-      <input type="email" class="form-control" placeholder="Correo Electrónico">
+      <input type="email" class="form-control" placeholder="Correo Electrónico"
+        v-model="usuario.correo">
     </div>
     <div class="form-group">
       <label for="clave">Contraseña</label>
-      <input type="password" class="form-control" placeholder="Contraseña">
+      <input type="password" class="form-control" placeholder="Contraseña"
+        v-model="usuario.clave">
     </div>
     <div class="form-group">
       <label for="clave">Edad</label>
-      <input type="text" class="form-control" placeholder="Edad">
+      <input type="text" class="form-control" placeholder="Edad" v-model="usuario.edad">
     </div>
     <div class="form-group">
       <label for="pais">País</label>
@@ -67,10 +70,10 @@
     </div>
     <div class="resultados col-md-6" >
       <h1>Resultados</h1>
-      <p><strong>Nombre: </strong></p>
-      <p><strong>Correo Electrónico: </strong></p>
-      <p><strong>Contraseña: </strong></p>
-      <p><strong>Edad: </strong></p>
+      <p><strong>Nombre: </strong>{{usuario.nombre}}</p>
+      <p><strong>Correo Electrónico: </strong>{{usuario.correo}}</p>
+      <p><strong>Contraseña: </strong>{{usuario.clave}}</p>
+      <p><strong>Edad: </strong>{{usuario.edad}}</p>
       <p><strong>País: </strong></p>
       <p class="mensaje"><strong>Mensaje: </strong></p>
       <p><strong>Genero: </strong></p>
@@ -81,7 +84,16 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      usuario: {
+        nombre: '',
+        correo: '',
+        clave: '',
+        edad: ''
+      }
+    }
+  }
 }
 </script>
 <style>
