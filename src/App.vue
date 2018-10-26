@@ -5,35 +5,31 @@
       <form>
     <div class="form-group">
       <label for="correo">Nombre</label>
-      <input type="text" class="form-control" placeholder="Nombre"
-              v-model.trim="usuario.nombre">
+      <input type="text" class="form-control" placeholder="Nombre">
     </div>
     <div class="form-group">
       <label for="correo">Correo Electrónico</label>
-      <input type="email" class="form-control" placeholder="Correo Electrónico"
-              v-model.lazy="usuario.correo">
+      <input type="email" class="form-control" placeholder="Correo Electrónico">
     </div>
     <div class="form-group">
       <label for="clave">Contraseña</label>
-      <input type="password" class="form-control" placeholder="Contraseña"
-              v-model="usuario.clave">
+      <input type="password" class="form-control" placeholder="Contraseña">
     </div>
     <div class="form-group">
       <label for="clave">Edad</label>
-      <input type="text" class="form-control" placeholder="Edad"
-              v-model.number="usuario.edad">
+      <input type="text" class="form-control" placeholder="Edad">
     </div>
     <div class="form-group">
       <label for="pais">País</label>
-      <select class="form-control" v-model="usuario.pais">
-        <option v-for="pais in paises">{{pais}}</option>
+      <select class="form-control">
+        <option ></option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="mensaje">Mensaje</label>
       <textarea class="form-control" rows="3"
-                v-model="usuario.mensaje"></textarea>
+                ></textarea>
     </div>
 
     <fieldset class="form-group">
@@ -41,14 +37,14 @@
       <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="optionsRadios"
-                value="hombre" checked v-model="usuario.genero">
+                value="hombre" checked >
           Hombre
         </label>
       </div>
       <div class="form-check">
       <label class="form-check-label">
           <input type="radio" class="form-check-input" name="optionsRadios"
-                value="mujer" v-model="usuario.genero">
+                value="mujer" >
           Mujer
         </label>
       </div>
@@ -56,60 +52,36 @@
       </fieldset>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="acepto"
-          v-model="usuario.condiciones">
+          <input type="checkbox" class="form-check-input" value="acepto">
           Acepto las condiciones
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="newsletter"
-          v-model="usuario.condiciones">
+          <input type="checkbox" class="form-check-input" value="newsletter">
           Recibir la newsletter
         </label>
       </div>
-      <button type="submit" class="btn btn-primary"
-              @click.prevent="enviarFormulario">Enviar</button>
+      <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
     </div>
-    <div class="resultados col-md-6" v-if="mostrar">
+    <div class="resultados col-md-6" >
       <h1>Resultados</h1>
-      <p><strong>Nombre: </strong> {{usuario.nombre}} - {{usuario.nombre.length}}</p>
-      <p><strong>Correo Electrónico: </strong>{{usuario.correo}}</p>
-      <p><strong>Contraseña: </strong>{{usuario.clave}}</p>
-      <p><strong>Edad: </strong>{{usuario.edad}} - {{ typeof usuario.edad }}</p>
-      <p><strong>País: </strong>{{usuario.pais}}</p>
-      <p class="mensaje"><strong>Mensaje: </strong>{{usuario.mensaje}}</p>
-      <p><strong>Genero: </strong>{{usuario.genero}}</p>
-      <p><strong>Condiciones: </strong>{{usuario.condiciones}}</p>
+      <p><strong>Nombre: </strong></p>
+      <p><strong>Correo Electrónico: </strong></p>
+      <p><strong>Contraseña: </strong></p>
+      <p><strong>Edad: </strong></p>
+      <p><strong>País: </strong></p>
+      <p class="mensaje"><strong>Mensaje: </strong></p>
+      <p><strong>Genero: </strong></p>
+      <p><strong>Condiciones: </strong></p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      usuario: {
-        nombre : '',
-        correo : '',
-        clave : '',
-        edad : '',
-        pais : 'Colombia',
-        mensaje: '',
-        genero: 'hombre',
-        condiciones: []
-      },
-      mostrar : false,
-      paises : ['Argentina','Bolivia','Brasil','Chile','Colombia','Ecuador','España','Mexico','Paraguay','Uruguay','Venezuela']
 
-    }
-  },
-  methods:{
-    enviarFormulario(){
-      this.mostrar = true
-    }
-  }
 }
 </script>
 <style>
