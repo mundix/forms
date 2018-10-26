@@ -6,32 +6,33 @@
     <div class="form-group">
       <label for="correo">Nombre</label>
       <input type="text" class="form-control" placeholder="Nombre"
-      v-model="usuario.nombre">
+      v-model.trim="usuario.nombre">
     </div>
     <div class="form-group">
       <label for="correo">Correo Electrónico</label>
+      <!-- Lazy ->perezoso es para cuadno cambie completo del campo , no por letra -->
       <input type="email" class="form-control" placeholder="Correo Electrónico"
-        v-model="usuario.correo">
+        v-model.trim.lazy="usuario.correo">
     </div>
     <div class="form-group">
       <label for="clave">Contraseña</label>
       <input type="password" class="form-control" placeholder="Contraseña"
-        v-model="usuario.clave">
+        v-model.trim="usuario.clave">
     </div>
     <div class="form-group">
       <label for="clave">Edad</label>
-      <input type="text" class="form-control" placeholder="Edad" v-model="usuario.edad">
+      <input type="text" class="form-control" placeholder="Edad" v-model.trim.number="usuario.edad">
     </div>
     <div class="form-group">
       <label for="pais">País</label>
-      <select class="form-control">
-        <option ></option>
+      <select class="form-control" v-model="usuario.pais">
+        <option v-for="pais of paises" :key="pais">{{pais}}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="mensaje">Mensaje</label>
-      <textarea class="form-control" rows="3"
+      <textarea class="form-control" rows="3" v-model="usuario.mensaje"
                 ></textarea>
     </div>
 
@@ -70,12 +71,12 @@
     </div>
     <div class="resultados col-md-6" >
       <h1>Resultados</h1>
-      <p><strong>Nombre: </strong>{{usuario.nombre}}</p>
+      <p><strong>Nombre: </strong>{{usuario.nombre}} - {{usuario.nombre.length}}</p>
       <p><strong>Correo Electrónico: </strong>{{usuario.correo}}</p>
       <p><strong>Contraseña: </strong>{{usuario.clave}}</p>
-      <p><strong>Edad: </strong>{{usuario.edad}}</p>
-      <p><strong>País: </strong></p>
-      <p class="mensaje"><strong>Mensaje: </strong></p>
+      <p><strong>Edad: </strong>{{usuario.edad}} - {{typeof usuario.edad}}</p>
+      <p><strong>País: </strong> {{usuario.pais}}</p>
+      <p class="mensaje"><strong>Mensaje: {{usuario.mensaje}}</strong></p>
       <p><strong>Genero: </strong></p>
       <p><strong>Condiciones: </strong></p>
     </div>
@@ -90,14 +91,30 @@ export default {
         nombre: '',
         correo: '',
         clave: '',
-        edad: ''
-      }
+        edad: '',
+        pais: 'Colombia',
+        mensaje:''
+      },
+      paises: [
+        'Rep Dominicana',
+        'Cuba',
+        'Venezuela',
+        'Puerto Rico',
+        'Mexico',
+        'Colombia',
+        'Haiti',
+        'Peru',
+
+      ]
     }
   }
 }
 </script>
+
 <style>
+
 .mensaje{
   white-space: pre;
+  /* //Esto me permite   hacer los cambipos de linea con esta clase. */
 }
 </style>
