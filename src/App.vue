@@ -66,10 +66,10 @@
           Recibir la newsletter
         </label>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary" @click.prevent="enviarFormulario">Enviar</button>
     </form>
     </div>
-    <div class="resultados col-md-6" >
+    <div class="resultados col-md-6" v-if="mostrar">
       <h1>Resultados</h1>
       <p><strong>Nombre: </strong>{{usuario.nombre}} - {{usuario.nombre.length}}</p>
       <p><strong>Correo Electrónico: </strong>{{usuario.correo}}</p>
@@ -97,6 +97,7 @@ export default {
         genero:'hombre',
         condiciones: []
       },
+      mostrar:false,
       paises: [
         'Rep Dominicana',
         'Cuba',
@@ -108,6 +109,11 @@ export default {
         'Peru',
 
       ]
+    }
+  },
+  methods: {
+    enviarFormulario(){
+      this.mostrar = true;
     }
   }
 }
