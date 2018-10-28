@@ -41,14 +41,14 @@
       <div class="form-check">
         <label class="form-check-label">
           <input type="radio" class="form-check-input" name="optionsRadios"
-                value="hombre" checked >
+                value="hombre" checked v-model="usuario.genero">
           Hombre
         </label>
       </div>
       <div class="form-check">
       <label class="form-check-label">
           <input type="radio" class="form-check-input" name="optionsRadios"
-                value="mujer" >
+                value="mujer" v-model="usuario.genero">
           Mujer
         </label>
       </div>
@@ -56,13 +56,13 @@
       </fieldset>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="acepto">
+          <input type="checkbox" class="form-check-input" value="acepto" v-model="usuario.condiciones">
           Acepto las condiciones
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="newsletter">
+          <input type="checkbox" class="form-check-input" value="newsletter" v-model="usuario.condiciones">
           Recibir la newsletter
         </label>
       </div>
@@ -77,8 +77,8 @@
       <p><strong>Edad: </strong>{{usuario.edad}} - {{typeof usuario.edad}}</p>
       <p><strong>País: </strong> {{usuario.pais}}</p>
       <p class="mensaje"><strong>Mensaje: {{usuario.mensaje}}</strong></p>
-      <p><strong>Genero: </strong></p>
-      <p><strong>Condiciones: </strong></p>
+      <p><strong>Genero: </strong>{{usuario.genero}}</p>
+      <p><strong>Condiciones: </strong>{{usuario.condiciones}}</p>
     </div>
   </div>
 </template>
@@ -93,7 +93,9 @@ export default {
         clave: '',
         edad: '',
         pais: 'Colombia',
-        mensaje:''
+        mensaje:'',
+        genero:'hombre',
+        condiciones: []
       },
       paises: [
         'Rep Dominicana',
